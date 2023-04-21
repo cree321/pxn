@@ -23,7 +23,7 @@ window.onload = (event) => {
     });
 
 
-    // const control_move = document.getElementById("controlUI_move");
+    const control_move = document.getElementById("controlUI_move");
     // const control_look = document.getElementById("controlUI_look");
     // const control_place = document.getElementById("controlUI_place");
     // const control_destroy = document.getElementById("controlUI_destroy");
@@ -35,5 +35,14 @@ window.onload = (event) => {
 
       // }
       physics_delegate.postMessage({type: 2, movementX: e.movementX, movementY: e.movementY})
+    });
+    control_move.addEventListener("pointerdown", (e) => {
+      console.log(`${e.offsetX}, ${e.offsetY}`)
+      e.stopPropagation();
+      //physics_delegate.postMessage({type: 2, movementX: e.movementX, movementY: e.movementY})
+    });
+    control_move.addEventListener("pointerup", (e) => {
+      e.stopPropagation();
+      //physics_delegate.postMessage({type: 2, movementX: e.movementX, movementY: e.movementY})
     });
 }
