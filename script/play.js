@@ -1,4 +1,10 @@
 "use strict";
+
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/pxn/script/sw.js");
+}
+
+
 const physics_delegate = new Worker("/pxn/script/engine/physicsDelegate.js");
 physics_delegate.onmessage = (e) => {
   console.debug(e.data.type);
