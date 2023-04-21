@@ -42,6 +42,7 @@ window.onload = (event) => {
       //   case "controlUI_look":
 
       // }
+      e.preventDefault();
       physics_delegate.postMessage({type: 2, movementX: e.movementX, movementY: e.movementY})
     });
     control_move.addEventListener("pointerdown", (e) => {
