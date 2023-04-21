@@ -11,7 +11,7 @@ var acceleration = [0,0,0];// which direction is the viewer intending to move
 var velocity = [0,0,0];// which direction/magnitude is the viewer moving
 var rotV = [0,0];// rotation velocity
 var lookSensitivity = [1,1];
-var moveSensitivity = [0.2, 0.2];
+var moveSensitivity = [0.1, 0.1];
 var maxFall = 0;// distance to floor
 // POST: Input Map???
 
