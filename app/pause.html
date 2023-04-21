@@ -1,0 +1,39 @@
+
+<!--PXN pause.html, ©2023-->
+<form name="pauseUI">
+  <h1>Paused</h1>
+  <h2>Control</h2>
+  <section id="pauseUI-control">
+    <input type="reset" id="pauseUI-reset-settings" value="Reset Settings">
+    
+    <input type="submit" value="Resume">
+  </section>
+  <hr>
+  <h2>File</h2>
+  <section id="pauseUI-file">
+    <label for="file-upload">Upload:</label>
+    <input name="file-upload" id="file-upload" type="file">
+    <br>
+    <label for="file-download-name">Current File:</label>
+    <input name="file-download-name" id="file-download-name" type="text" placeholder="None">
+    <input name="file-download" type="button" value="Download">
+  </section>
+  <hr>
+  <h2>Video</h2>
+  <section id="pauseUI-video">
+    <label for="video-viewport-width">Viewport Size</label>
+    <input name="video-viewport-width" id="video-viewport-width" type="number" min="1">
+    <label for="video-viewport-height">x</label>
+    <input name="video-viewport-height" id="video-viewport-height" type="number" min="1">
+  </section>
+  <hr>
+  <h2>Development</h2>
+  <section id="pauseUI-development">
+    <input name="development-dev-mode" id="development-dev-mode" type="checkbox">
+    <label for="development-dev-mode">Dev Mode</label>
+    
+    <a href="play.html">Play</a>
+    <br>
+    <a href="model.html">Model</a>
+  </section>
+</form>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--PXN play.html, ©2023-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pxn</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <style>
+    body{
+      background-color: #333;
+      margin: 0;
+    }
+    .assembly {
+      width: 0;
+      height: 0;
+      position: absolute;
+      transform-style: preserve-3d;
+    }
+    .geo {
+      width: 1em;
+      height: 1em;
+      position: absolute;
+      /* background-image: linear-gradient(#f00, #0f0); */
+      background-blend-mode: multiply;
+      backface-visibility: hidden;
+    }
+      </style>
+</head>
+<body>
+  <div id="viewport" style="width: 100vw; height: 100vh; position: fixed; overflow: hidden; perspective: 800px; top: 0;">
+    <div id="camera" class="assembly" style="top: 50%; left: 50%; transform: translateZ(800px);">
+    <div id="scene" class="assembly">
+    </div>
+    </div>
+  </div>
+    <script src="../script/play.js" defer></script>
+    <script src="../script/pause.js" async></script>
+</body>
+</html>
