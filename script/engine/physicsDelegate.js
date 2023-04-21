@@ -16,7 +16,7 @@ var maxFall = 0;// distance to floor
 
 onmessage = (message) => {
   var e = message.data;
-  console.log(e);
+  console.debug(e);
   switch(e.type) {
     case 2:
       rotation[0] = rotation[0] %360 + e.movementY;
