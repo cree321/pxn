@@ -24,11 +24,11 @@ self.addEventListener("install", (e) => {
 self.addEventListener("fetch", (e) => {
   e.respondWith(
     (async () => {
-      const CACHED_RESOURCE = await caches.match(e.request);
-      console.debug(`[Service Worker] Fetching resource: ${e.request.url}`);
-      if (CACHED_RESOURCE) {
-        return CACHED_RESOURCE;
-      }
+      // const CACHED_RESOURCE = await caches.match(e.request);
+      // console.debug(`[Service Worker] Fetching resource: ${e.request.url}`);
+      // if (CACHED_RESOURCE) {
+      //   return CACHED_RESOURCE;
+      // }
       const NEW_RESOURCE = await fetch(e.request);
       const CACHE = await caches.open(CACHE_NAME);
       console.debug(`[Service Worker] Caching new resource: ${e.request.url}`);
