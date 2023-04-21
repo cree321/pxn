@@ -1,8 +1,8 @@
 const CACHE_NAME = "pxn-2023.04.21.00";
 const APP_SHELL = [
-  "/index.html",
-  "/app/play.html",
-  "/app/pause.html"
+  "/pxn/index.html",
+  "/pxn/app/play.html",
+  "/pxn/app/pause.html"
 ];
 const APP_CONTENT = [
 
