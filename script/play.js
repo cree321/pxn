@@ -1,11 +1,11 @@
 "use strict";
-const physics_delegate = new Worker("/script/engine/physicsDelegate.js");
+const physics_delegate = new Worker("/pxn/script/engine/physicsDelegate.js");
 physics_delegate.onmessage = (e) => {
   console.log(e.data.type);
   if(e.data.type) {camera.style.transform = "translateZ(800px) "+e.data.transform;}
   else {scene.style.transform = e.data.transform;}
 }
-const scene_delegate = new Worker("/script/engine/sceneDelegate.js");
+const scene_delegate = new Worker("/pxn/script/engine/sceneDelegate.js");
 scene_delegate.onmessage = (e) => {scene.innerHTML = e.data;}
 
 window.onload = (event) => {
