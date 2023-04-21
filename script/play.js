@@ -37,7 +37,7 @@ window.onload = (event) => {
       physics_delegate.postMessage({type: 2, movementX: e.movementX, movementY: e.movementY})
     });
     control_move.addEventListener("pointerdown", (e) => {
-      console.log(`${e.offsetX}, ${e.offsetY}`)
+      console.log(`${e.offsetX}, ${e.offsetY}`);
       e.stopPropagation();
       //physics_delegate.postMessage({type: 2, movementX: e.movementX, movementY: e.movementY})
     });
