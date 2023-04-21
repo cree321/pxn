@@ -19,10 +19,14 @@ onmessage = (message) => {
   var e = message.data;
   console.debug(e);
   switch(e.type) {
+    case 3:
+      velocity[2] = e.movementY;
+      velocity[0] = e.movementX;
+      break;
     case 2:
       rotV[0] = e.movementX * lookSensitivity[0];
       rotV[1] = -e.movementY * lookSensitivity[1];
-      postMessage("rotateX("+rotation[1]+"deg) rotateY("+rotation[0]+"deg)");
+      //postMessage("rotateX("+rotation[1]+"deg) rotateY("+rotation[0]+"deg)");
       break;
     case 1:
       switch(e.code) {
