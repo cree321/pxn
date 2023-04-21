@@ -1,5 +1,6 @@
-const CACHE_NAME = "pxn-2023.04.21.00";
+const CACHE_NAME = "pxn-2023.04.21.01";
 const APP_SHELL = [
+  "/pxn/",
   "/pxn/index.html",
   "/pxn/app/play.html",
   "/pxn/app/pause.html"
@@ -24,11 +25,11 @@ self.addEventListener("install", (e) => {
 self.addEventListener("fetch", (e) => {
   e.respondWith(
     (async () => {
-      // const CACHED_RESOURCE = await caches.match(e.request);
-      // console.debug(`[Service Worker] Fetching resource: ${e.request.url}`);
-      // if (CACHED_RESOURCE) {
-      //   return CACHED_RESOURCE;
-      // }
+      const CACHED_RESOURCE = await caches.match(e.request);
+      console.debug(`[Service Worker] Fetching resource: ${e.request.url}`);
+      if (CACHED_RESOURCE) {
+        return CACHED_RESOURCE;
+      }
       const NEW_RESOURCE = await fetch(e.request);
       const CACHE = await caches.open(CACHE_NAME);
       console.debug(`[Service Worker] Caching new resource: ${e.request.url}`);
