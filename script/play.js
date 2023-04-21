@@ -7,7 +7,7 @@ if ("serviceWorker" in navigator) {
 
 const physics_delegate = new Worker("/pxn/script/engine/physicsDelegate.js");
 physics_delegate.onmessage = (e) => {
-  console.debug(e.data.type);
+  //console.debug(e.data.type);
   if(e.data.type) {camera.style.transform = "translateZ(800px) "+e.data.transform;}
   else {scene.style.transform = e.data.transform;}
 }
@@ -50,7 +50,7 @@ window.onload = (event) => {
       physics_delegate.postMessage({type: 3, movementX: e.offsetX - ctrl_mv_w, movementY: e.offsetY - ctrl_mv_h})
     });
     control_move.addEventListener("pointermove", (e) => {
-      console.debug(`${e.offsetX - ctrl_mv_w}, ${e.offsetY - ctrl_mv_h}`);
+      //console.debug(`${e.offsetX - ctrl_mv_w}, ${e.offsetY - ctrl_mv_h}`);
       e.stopPropagation();
       physics_delegate.postMessage({type: 3, movementX: e.offsetX - ctrl_mv_w, movementY: e.offsetY - ctrl_mv_h})
     });
