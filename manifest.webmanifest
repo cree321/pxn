@@ -4,7 +4,7 @@
   "description": "",
   "icons": [
     {
-      "src": "icons/icon-32.png",
+      "src": "/pxn/icon-32.png",
       "sizes": "32x32",
       "type": "image/png"
     }
@@ -12,6 +12,6 @@
   "theme_color": "#000",
   "background_color": "#000",
   "display": "fullscreen",
-  "scope": "/",
-  "start_url": "/index.html"
+  "scope": "/pxn/",
+  "start_url": "/pxn/index.html"
 }
