@@ -1,7 +1,7 @@
 "use strict";
 
 if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("/pxn/script/sw.js");
+  navigator.serviceWorker.register("/pxn/script/sw.js", {scope: "/pxn/"});
 }
 
 
