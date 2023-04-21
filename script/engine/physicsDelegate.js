@@ -21,7 +21,7 @@ onmessage = (message) => {
   switch(e.type) {
     case 2:
       rotV[0] = e.movementX * lookSensitivity[0];
-      rotV[1] = e.movementY * lookSensitivity[1];
+      rotV[1] = -e.movementY * lookSensitivity[1];
       postMessage("rotateX("+rotation[1]+"deg) rotateY("+rotation[0]+"deg)");
       break;
     case 1:
