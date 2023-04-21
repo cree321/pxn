@@ -1,0 +1,17 @@
+{
+  "name:": "pxn",
+  "short_name": "pxn",
+  "description": "",
+  "icons": [
+    {
+      "src": "/pxn/icon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#000",
+  "background_color": "#000",
+  "display": "fullscreen",
+  "scope": "/pxn/",
+  "start_url": "/pxn/index.html"
+}
