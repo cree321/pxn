@@ -23,7 +23,7 @@ window.onload = (event) => {
     });
 
 
-    const control_move = document.getElementById("controlUI_move");
+    const control_move = document.getElementById("controlUI-move");
     // const control_look = document.getElementById("controlUI_look");
     // const control_place = document.getElementById("controlUI_place");
     // const control_destroy = document.getElementById("controlUI_destroy");
