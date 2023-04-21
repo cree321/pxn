@@ -7,6 +7,11 @@
       "src": "/pxn/icon-32.png",
       "sizes": "32x32",
       "type": "image/png"
+    },
+    {
+      "src": "/pxn/icon-160.png",
+      "sizes": "160x160",
+      "type": "image/png"
     }
   ],
   "theme_color": "#000",
