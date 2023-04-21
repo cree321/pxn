@@ -1,7 +1,7 @@
 "use strict";
 const physics_delegate = new Worker("/pxn/script/engine/physicsDelegate.js");
 physics_delegate.onmessage = (e) => {
-  console.log(e.data.type);
+  console.debug(e.data.type);
   if(e.data.type) {camera.style.transform = "translateZ(800px) "+e.data.transform;}
   else {scene.style.transform = e.data.transform;}
 }
