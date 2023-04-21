@@ -39,7 +39,11 @@ window.onload = (event) => {
       physics_delegate.postMessage({type: 2, movementX: e.movementX, movementY: e.movementY})
     });
     control_move.addEventListener("pointerdown", (e) => {
-      console.log(`${e.offsetX - ctrl_mv_w}, ${e.offsetY - ctrl_mv_h}`);
+      e.stopPropagation();
+      physics_delegate.postMessage({type: 3, movementX: e.offsetX - ctrl_mv_w, movementY: e.offsetY - ctrl_mv_h})
+    });
+    control_move.addEventListener("pointermove", (e) => {
+      console.debug(`${e.offsetX - ctrl_mv_w}, ${e.offsetY - ctrl_mv_h}`);
       e.stopPropagation();
       physics_delegate.postMessage({type: 3, movementX: e.offsetX - ctrl_mv_w, movementY: e.offsetY - ctrl_mv_h})
     });
