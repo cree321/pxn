@@ -24,6 +24,8 @@ window.onload = (event) => {
 
 
     const control_move = document.getElementById("controlUI-move");
+    const ctrl_mv_w = control_move.offsetWidth/2;
+    const ctrl_mv_h = control_move.offsetHeight/2;
     // const control_look = document.getElementById("controlUI_look");
     // const control_place = document.getElementById("controlUI_place");
     // const control_destroy = document.getElementById("controlUI_destroy");
@@ -37,12 +39,12 @@ window.onload = (event) => {
       physics_delegate.postMessage({type: 2, movementX: e.movementX, movementY: e.movementY})
     });
     control_move.addEventListener("pointerdown", (e) => {
-      console.log(`${e.offsetX}, ${e.offsetY}`);
+      console.log(`${e.offsetX - ctrl_mv_w}, ${e.offsetY - ctrl_mv_h}`);
       e.stopPropagation();
-      //physics_delegate.postMessage({type: 2, movementX: e.movementX, movementY: e.movementY})
+      physics_delegate.postMessage({type: 3, movementX: e.offsetX - ctrl_mv_w, movementY: e.offsetY - ctrl_mv_h})
     });
     control_move.addEventListener("pointerup", (e) => {
       e.stopPropagation();
-      //physics_delegate.postMessage({type: 2, movementX: e.movementX, movementY: e.movementY})
+      physics_delegate.postMessage({type: 3, movementX: 0, movementY: 0})
     });
 }
