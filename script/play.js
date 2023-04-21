@@ -12,8 +12,7 @@ window.onload = (event) => {
   const viewport = document.getElementById("viewport");
   const camera = document.getElementById("camera");
   const scene = document.getElementById("scene");
-  
-  
+
     scene_delegate.postMessage(null);
     window.addEventListener("keydown", (e) => {
       if(!e.repeat)
@@ -21,5 +20,20 @@ window.onload = (event) => {
     });
     window.addEventListener("keyup", (e) => {
       physics_delegate.postMessage({type: 0, code: e.code})
+    });
+
+
+    // const control_move = document.getElementById("controlUI_move");
+    // const control_look = document.getElementById("controlUI_look");
+    // const control_place = document.getElementById("controlUI_place");
+    // const control_destroy = document.getElementById("controlUI_destroy");
+
+    window.addEventListener("pointermove", (e) => {
+      // switch(e.target.id)
+      // {
+      //   case "controlUI_look":
+
+      // }
+      physics_delegate.postMessage({type: 2, movementX: e.movementX, movementY: e.movementY})
     });
 }
