@@ -20,8 +20,8 @@ onmessage = (message) => {
   console.debug(e);
   switch(e.type) {
     case 2:
-      rotation[0] = rotation[0] %360 + (e.movementY * lookSensitivity[1]);
-      rotation[1] = rotation[1] %360 + (e.movementX * lookSensitivity[0]);
+      rotV[0] = e.movementY * lookSensitivity[1];
+      rotV[1] = e.movementX * lookSensitivity[0];
       postMessage("rotateX("+rotation[1]+"deg) rotateY("+rotation[0]+"deg)");
       break;
     case 1:
@@ -100,6 +100,7 @@ function sceneUpdate() {
   if(rotV[0] || rotV[1]) {
     rotation[0] = (rotation[0] + rotV[0])%360;
     rotation[1] = (rotation[1] + rotV[1])%360;
+    rotV = [0, 0];
     postMessage({type: 1, transform: "rotateX("+rotation[1]+"deg) rotateY("+rotation[0]+"deg)"});
   }
 }
