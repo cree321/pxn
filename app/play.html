@@ -29,34 +29,20 @@
 </head>
 <body>
     <!--PXN control.html, ©2023-->
-    <!--style>
+    <style>
     .control {
       position: absolute;
       width: 50%;
       height: 50%;
     }
     </style>
-    <div id="controlUI" style="width: 100%; height: 100%;">
+    <div id="controlUI" style="width: 100%; height: 100%; z-index: 1;">
       <div id="controlUI-move" class="control" style="left: 0%; top: 50%;"></div>
       <div id="controlUI-look" class="control" style="left: 50%; top: 50%;"></div>
       <div id="controlUI-place" class="control" style="left: 50%; top: 0%;"></div>
       <div id="controlUI-destroy" class="control" style="left: 0%; top: 0%;"></div>
-    </div-->
+    </div>
   <div id="viewport" style="width: 100vw; height: 100vh; position: fixed; overflow: hidden; perspective: 800px; top: 0;">
-<!--PXN control.html, ©2023-->
-  <style>
-  .control {
-    position: absolute;
-    width: 50%;
-    height: 50%;
-  }
-  </style>
-  <div id="controlUI" style="width: 100%; height: 100%;">
-    <div id="controlUI-move" class="control" style="left: 0%; top: 50%;"></div>
-    <div id="controlUI-look" class="control" style="left: 50%; top: 50%;"></div>
-    <div id="controlUI-place" class="control" style="left: 50%; top: 0%;"></div>
-    <div id="controlUI-destroy" class="control" style="left: 0%; top: 0%;"></div>
-  </div>
     <div id="camera" class="assembly" style="top: 50%; left: 50%; transform: translateZ(800px);">
     <div id="scene" class="assembly">
     </div>
