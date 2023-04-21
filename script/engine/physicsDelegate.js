@@ -18,7 +18,7 @@ var maxFall = 0;// distance to floor
 
 onmessage = (message) => {
   var e = message.data;
-  console.debug(e);
+  //console.debug(e);
   switch(e.type) {
     case 3:
       velocity[2] = -e.movementY * moveSensitivity[1];
@@ -62,7 +62,7 @@ onmessage = (message) => {
           pause = (pause + 1)%2;
           break;
         case "Equal":
-          debug = (debug + 1)%2;
+          //debug = (debug + 1)%2;
           break;
       }
       break;
