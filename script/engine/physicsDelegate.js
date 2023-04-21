@@ -10,6 +10,7 @@ var scale = [0,0,0];
 var acceleration = [0,0,0];// which direction is the viewer intending to move
 var velocity = [0,0,0];// which direction/magnitude is the viewer moving
 var rotV = [0,0];// rotation velocity
+var lookSensitivity = [1,1];
 var maxFall = 0;// distance to floor
 // POST: Input Map???
 
@@ -19,8 +20,8 @@ onmessage = (message) => {
   console.debug(e);
   switch(e.type) {
     case 2:
-      rotation[0] = rotation[0] %360 + e.movementY;
-      rotation[1] = rotation[1] %360 + e.movementX;
+      rotation[0] = rotation[0] %360 + (e.movementY * lookSensitivity[1]);
+      rotation[1] = rotation[1] %360 + (e.movementX * lookSensitivity[0]);
       postMessage("rotateX("+rotation[1]+"deg) rotateY("+rotation[0]+"deg)");
       break;
     case 1:
