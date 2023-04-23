@@ -31,7 +31,7 @@ function parseMap(scene_request, style_request) {
     .then(response => response.json())
     .then(async scene_data => {
       var scene_style = await fetch(style_request);
-      {scene_style.json(), scene_data};
+      {scene_style, scene_data};
     })
     .then(scene_style, scene_data => {
       //console.debug(data);
