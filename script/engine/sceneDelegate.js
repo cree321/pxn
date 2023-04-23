@@ -1,9 +1,15 @@
 "use strict";
 var commit = ``;
-var isParsing = 0;
-const cap0ul = new Request("https://raw.githubusercontent.com/cree321/ned/master/assets/cap0/escena.json");
+var is_parsing = 0;
+const scene_repo_link = ".../z_resources/";
+const scene_file_name = "demo-scene.json";
+const scene_style_name = "demo-style.css";
+const scene_request = new Request(scene_repo_link.concat(scene_file_name));
+const style_request = new Request(scene_repo_link.concat(scene_style_name));
+/* Assume scene_object has "link", "scene-layout" and "scene" properties
+ */
 
-parseMap(cap0ul);
+parseMap(scene_object);
 
 onmessage = (message) => {
   var timeout = setTimeout(() => {
@@ -11,7 +17,7 @@ onmessage = (message) => {
     //console.debug("sD: Timeout");
   }, 10100);
   var checker = setInterval(() => {
-    if(!isParsing) {
+    if(!is_parsing) {
       postMessage(commit);
       clearTimeout(timeout);
       clearInterval(checker);
@@ -19,15 +25,18 @@ onmessage = (message) => {
   }, 1000);
 }
 
-function parseMap(request) {
+function parseMap(scene_request) {
   commit = ``;
-  fetch(request)
+  fetch(scene_request)
     .then(response => response.json())
-    .then(data => {
+    .then(scene_data => fetch(scene_request).json().catch(console.error))
+    .then(scene_style => {
       //console.debug(data);
-      commit += `<style>.tempgrad {background-image: linear-gradient(#f00, #0f0);}</style>`;//`<link rel="stylesheet" href="${data.link}"></link>`;
-      data.hall.forEach((value) => {
-        commit += `<div class="geo ${value.c}" style="transform: translate3d(${value.t[0]}px,${value.t[1]}px,${value.t[2]}px) scale3d(${value.s[0]},${value.s[1]},${value.s[2]}) rotateX(${value.r[0]}deg) rotateY(${value.r[1]}deg);"></div>`;
+      commit += `<style>${scene_style}</style>`;//`<link rel="stylesheet" href="${data.link}"></link>`;
+      scene_data.scene-layout.forEach((room) => {
+        room.forEach((value) => {
+          commit += `<div class="geo ${value.c}" style="transform: translate3d(${value.t[0]}px,${value.t[1]}px,${value.t[2]}px) scale3d(${value.s[0]},${value.s[1]},${value.s[2]}) rotateX(${value.r[0]}deg) rotateY(${value.r[1]}deg);"></div>`;
+        });
       });
     }).catch(console.error);
 }
