@@ -30,7 +30,8 @@ function parseMap(scene_request, style_request) {
   fetch(scene_request)
     .then(response => response.json())
     .then(async scene_data => {
-      var scene_style = await fetch(scene_repo_link + scene_data.link).catch(console.error);;
+      var scene_style = await fetch(scene_repo_link + scene_data.link).catch(console.error);
+      scene_style = await scene_style.text();
       
       //console.debug(data);
       commit += `<style>${scene_style}</style>`;//`<link rel="stylesheet" href="${data.link}"></link>`;
