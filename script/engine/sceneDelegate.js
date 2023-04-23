@@ -35,7 +35,7 @@ function parseMap(scene_request, style_request) {
       //console.debug(data);
       commit += `<style>${scene_style}</style>`;//`<link rel="stylesheet" href="${data.link}"></link>`;
       scene_data["scene-layout"].forEach((room) => {
-        scene_data.scene["room"].forEach((value) => {
+        scene_data.scene[room].forEach((value) => {
           commit += `<div class="geo ${value.c}" style="transform: translate3d(${value.t[0]}px,${value.t[1]}px,${value.t[2]}px) scale3d(${value.s[0]},${value.s[1]},${value.s[2]}) rotateX(${value.r[0]}deg) rotateY(${value.r[1]}deg);"></div>`;
         });
       });
