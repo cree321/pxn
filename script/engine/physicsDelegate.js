@@ -10,18 +10,24 @@ var scale = [0,0,0];
 var acceleration = [0,0,0];// which direction is the viewer intending to move
 var velocity = [0,0,0];// which direction/magnitude is the viewer moving
 var rotV = [0,0];// rotation velocity
+var lookSensitivity = [1,1];
+var moveSensitivity = [0.1, 0.1];
 var maxFall = 0;// distance to floor
 // POST: Input Map???
 
 
 onmessage = (message) => {
   var e = message.data;
-  console.debug(e);
+  //console.debug(e);
   switch(e.type) {
+    case 3:
+      velocity[2] = -e.movementY * moveSensitivity[1];
+      velocity[0] = -e.movementX * moveSensitivity[0];
+      break;
     case 2:
-      rotation[0] = rotation[0] %360 + e.movementY;
-      rotation[1] = rotation[1] %360 + e.movementX;
-      postMessage("rotateX("+rotation[1]+"deg) rotateY("+rotation[0]+"deg)");
+      rotation[0] = (rotation[0] + (e.movementX * lookSensitivity[0])) %360;
+      rotation[1] = (rotation[1] + (-e.movementY * lookSensitivity[1])) %360;
+      postMessage({type: 1, transform: "rotateX("+rotation[1]+"deg) rotateY("+rotation[0]+"deg)"});
       break;
     case 1:
       switch(e.code) {
@@ -56,7 +62,7 @@ onmessage = (message) => {
           pause = (pause + 1)%2;
           break;
         case "Equal":
-          debug = (debug + 1)%2;
+          //debug = (debug + 1)%2;
           break;
       }
       break;
@@ -99,6 +105,7 @@ function sceneUpdate() {
   if(rotV[0] || rotV[1]) {
     rotation[0] = (rotation[0] + rotV[0])%360;
     rotation[1] = (rotation[1] + rotV[1])%360;
+    rotV = [0, 0];
     postMessage({type: 1, transform: "rotateX("+rotation[1]+"deg) rotateY("+rotation[0]+"deg)"});
   }
 }

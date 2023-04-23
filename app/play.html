@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <!--PXN play.html, ©2023-->
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>pxn</title>
   <link rel="manifest" href="../manifest.webmanifest">
+  <script src="../script/play.js" async></script>
   <style>
     body{
       background-color: #333;
@@ -34,7 +35,22 @@
     </div>
     </div>
   </div>
-    <script src="../script/play.js" defer></script>
+<!--PXN control.html, ©2023-->
+    <style>
+    .control {
+      position: absolute;
+      width: 50%;
+      height: 50%;
+      user-select: none;
+      touch-action: none;
+    }
+    </style>
+    <div id="controlUI" style="width: 100vw; height: 100vh;">
+      <div id="controlUI-move" class="control" style="left: 0%; top: 50%; border: dashed #444;"></div>
+      <div id="controlUI-look" class="control" style="left: 50%; top: 50%;"></div>
+      <div id="controlUI-place" class="control" style="left: 50%; top: 0%;"></div>
+      <div id="controlUI-destroy" class="control" style="left: 0%; top: 0%;"></div>
+    </div>
     <script src="../script/pause.js" async></script>
 </body>
 </html>

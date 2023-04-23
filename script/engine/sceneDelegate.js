@@ -8,7 +8,7 @@ parseMap(cap0ul);
 onmessage = (message) => {
   var timeout = setTimeout(() => {
     clearInterval(checker);
-    console.debug("sD: Timeout");
+    //console.debug("sD: Timeout");
   }, 10100);
   var checker = setInterval(() => {
     if(!isParsing) {
