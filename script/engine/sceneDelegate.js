@@ -1,7 +1,7 @@
 "use strict";
 var commit = ``;
 var is_parsing = 0;
-const scene_repo_link = ".../z_resources/";
+const scene_repo_link = "../../z_resources/";
 const scene_file_name = "demo-scene.json";
 const scene_style_name = "demo-style.css";
 const scene_request = new Request(scene_repo_link.concat(scene_file_name));
