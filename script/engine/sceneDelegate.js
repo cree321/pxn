@@ -9,7 +9,7 @@ const style_request = new Request(scene_repo_link.concat(scene_style_name));
 /* Assume scene_object has "link", "scene-layout" and "scene" properties
  */
 
-parseMap(scene_object);
+parseMap(scene_request, style_request);
 
 onmessage = (message) => {
   var timeout = setTimeout(() => {
@@ -25,11 +25,11 @@ onmessage = (message) => {
   }, 1000);
 }
 
-function parseMap(scene_request) {
+function parseMap(scene_request, style_request) {
   commit = ``;
   fetch(scene_request)
     .then(response => response.json())
-    .then(scene_data => fetch(scene_request).json().catch(console.error))
+    .then(scene_data => fetch(style_request).json().catch(console.error))
     .then(scene_style => {
       //console.debug(data);
       commit += `<style>${scene_style}</style>`;//`<link rel="stylesheet" href="${data.link}"></link>`;
