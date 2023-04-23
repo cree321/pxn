@@ -1,8 +1,7 @@
-const CACHE_NAME = "pxn-2023.04.21.02";
+const CACHE_NAME = "pxn-2023.04.23.00";
 const APP_SHELL = [
   "/pxn/",
-  "/pxn/index.html",
-  "/pxn/app/pause.html"
+  "/pxn/index.html"
 ];
 const APP_CONTENT = [
 

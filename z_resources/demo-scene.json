@@ -1,0 +1,20 @@
+{
+  "link": "demo-style.css",
+  "scene-layout": [
+    "hall", "classroom"
+  ],
+  "scene": {
+    "hall": [
+      {"t": [0,0,-100], "s": [10,5,1], "r": [0,0], "b": "linear-gradient(#f00,#0f0)", "c": "tempgrad"},
+      {"t": [0,0,800], "s": [10,5,1], "r": [0,180], "b": "linear-gradient(#f00,#0f0)", "c": "tempgrad"},
+      {"t": [-80,0,0], "s": [1,5,100], "r": [0,90], "b": "linear-gradient(#f00,#0f0)", "c": "tempgrad"},
+      {"t": [80,0,0], "s": [1,5,100], "r": [0,270], "b": "linear-gradient(#f00,#0f0)", "c": "tempgrad"}
+    ],
+    "classroom": [
+      {"t": [0,0,-800], "s": [10,5,1], "r": [0,0], "b": "linear-gradient(#f00,#0f0)", "c": "tempgrad"},
+      {"t": [0,0,800], "s": [10,5,1], "r": [0,180], "b": "linear-gradient(#f00,#0f0)", "c": "tempgrad"},
+      {"t": [-80,0,0], "s": [1,5,100], "r": [0,90], "b": "linear-gradient(#f00,#0f0)", "c": "tempgrad"},
+      {"t": [80,0,0], "s": [1,5,100], "r": [0,270], "b": "linear-gradient(#f00,#0f0)", "c": "tempgrad"}
+    ]
+  }
+}
