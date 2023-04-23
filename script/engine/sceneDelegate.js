@@ -31,12 +31,12 @@ function parseMap(scene_request, style_request) {
     .then(response => response.json())
     .then(async scene_data => {
       var scene_style = await fetch(style_request);
-      {scene_style, scene_data};
+      var scene = {style: scene_style, data: scene_data};
     })
-    .then(scene_style, scene_data => {
+    .then(scene => {
       //console.debug(data);
-      commit += `<style>${scene_style}</style>`;//`<link rel="stylesheet" href="${data.link}"></link>`;
-      scene_data.scene-layout.forEach((room) => {
+      commit += `<style>${scene.style}</style>`;//`<link rel="stylesheet" href="${data.link}"></link>`;
+      scene.data.scene-layout.forEach((room) => {
         room.forEach((value) => {
           commit += `<div class="geo ${value.c}" style="transform: translate3d(${value.t[0]}px,${value.t[1]}px,${value.t[2]}px) scale3d(${value.s[0]},${value.s[1]},${value.s[2]}) rotateX(${value.r[0]}deg) rotateY(${value.r[1]}deg);"></div>`;
         });
