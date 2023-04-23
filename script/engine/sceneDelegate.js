@@ -1,6 +1,6 @@
 "use strict";
 var commit = ``;
-var is_parsing = 0;
+var is_parsing = true;
 const scene_repo_link = "../../z_resources/";
 const scene_file_name = "demo-scene.json";
 const scene_style_name = "demo-style.css";
@@ -40,4 +40,5 @@ function parseMap(scene_request, style_request) {
         });
       });
     }).catch(console.error);
+    is_parsing = false;
 }
