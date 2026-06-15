@@ -42,7 +42,7 @@ window.onload = (event) => {
     // const control_place = document.getElementById("controlUI_place");
     // const control_destroy = document.getElementById("controlUI_destroy");
 
-    window.addEventListener("pointermove", (e) => {
+    viewport.addEventListener("pointermove", (e) => {
       // switch(e.target.id)
       // {
       //   case "controlUI_look":
@@ -61,7 +61,7 @@ window.onload = (event) => {
         movementY: (e.target.scrollTop - ctrl_joy_centerY)/ctrl_joy_maxY
       });
     });
-    control_move.addEventListener("pointerleave", (e) => {
+    control_move.addEventListener("pointerup", (e) => {
       e.stopPropagation();
       physics_delegate.postMessage({type: 3, movementX: 0, movementY: 0});
       joystick_center.scrollIntoView({block:"center", inline:"center"});
