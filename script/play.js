@@ -43,6 +43,7 @@ window.onload = (event) => {
     // const control_destroy = document.getElementById("controlUI_destroy");
 
     window.addEventListener("pointermove", (e) => {
+      if(e.target === control_move_center) return;
       // switch(e.target.id)
       // {
       //   case "controlUI_look":
