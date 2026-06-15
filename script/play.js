@@ -41,8 +41,8 @@ window.onload = (event) => {
     // const control_look = document.getElementById("controlUI_look");
     // const control_place = document.getElementById("controlUI_place");
     // const control_destroy = document.getElementById("controlUI_destroy");
-
-    viewport.addEventListener("pointermove", (e) => {
+window.addEventListener("pointerdown", (e) => { e.preventDefault(); };
+    window.addEventListener("pointermove", (e) => {
       // switch(e.target.id)
       // {
       //   case "controlUI_look":
@@ -58,7 +58,7 @@ window.onload = (event) => {
       physics_delegate.postMessage({
         type: 3,
         movementX: (ctrl_joy_centerX - e.target.scrollLeft)/ctrl_joy_maxX,
-        movementY: (e.target.scrollTop - ctrl_joy_centerY)/ctrl_joy_maxY
+        movementY: (ctrl_joy_centerY - e.target.scrollTop)/ctrl_joy_maxY
       });
     });
     control_move.addEventListener("pointerup", (e) => {
