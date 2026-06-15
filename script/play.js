@@ -51,10 +51,6 @@ window.onload = (event) => {
       e.preventDefault();
       physics_delegate.postMessage({type: 2, movementX: e.movementX, movementY: e.movementY})
     });
-    control_move.addEventListener("pointerdown", (e) => {
-      e.stopPropagation();
-      physics_delegate.postMessage({type: 3, movementX: e.offsetX - ctrl_mv_w, movementY: e.offsetY - ctrl_mv_h})
-    });
     control_move.addEventListener("scroll", (e) => {
       
       //console.debug(`${e.offsetX - ctrl_mv_w}, ${e.offsetY - ctrl_mv_h}`);
