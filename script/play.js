@@ -61,7 +61,7 @@ window.onload = (event) => {
         movementY: (e.target.scrollTop - ctrl_joy_centerY)/ctrl_joy_maxY
       });
     });
-    control_move.addEventListener("pointerup", (e) => {
+    control_move.addEventListener("scrollend", (e) => {
       e.stopPropagation();
       physics_delegate.postMessage({type: 3, movementX: 0, movementY: 0});
       joystick_center.scrollIntoView({block:"center", inline:"center"});
