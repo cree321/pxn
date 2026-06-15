@@ -41,7 +41,9 @@ window.onload = (event) => {
     // const control_look = document.getElementById("controlUI_look");
     // const control_place = document.getElementById("controlUI_place");
     // const control_destroy = document.getElementById("controlUI_destroy");
-window.addEventListener("pointerdown", (e) => { e.preventDefault(); };
+window.addEventListener("pointercancel", (e) => {
+  viewport.innerHTML = e;
+};
     window.addEventListener("pointermove", (e) => {
       // switch(e.target.id)
       // {
