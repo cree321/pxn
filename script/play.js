@@ -28,10 +28,16 @@ window.onload = (event) => {
       physics_delegate.postMessage({type: 0, code: e.code})
     });
 
+    //joystick move control reference points
+    const control_move = document.querySelector("#controlUI-move");
+    const joystick_center = document.querySelector("#joy-center");
+    joystick_center.scrollIntoView({block:"start", inline:"start"});
+    const ctrl_joy_maxX = control_move.scrollLeft /2;
+    const ctrl_joy_maxY = control_move.scrollTop /2;
 
-    const control_move = document.getElementById("controlUI-move");
-    const ctrl_mv_w = control_move.offsetWidth/2;
-    const ctrl_mv_h = control_move.offsetHeight/2;
+  joystick_center.scrollIntoView({block:"center", inline:"center"});
+  const ctrl_joy_centerX = control_move.scrollLeft;
+  const ctrl_joy_centerY = control_move.scrollTop;
     // const control_look = document.getElementById("controlUI_look");
     // const control_place = document.getElementById("controlUI_place");
     // const control_destroy = document.getElementById("controlUI_destroy");
@@ -49,13 +55,19 @@ window.onload = (event) => {
       e.stopPropagation();
       physics_delegate.postMessage({type: 3, movementX: e.offsetX - ctrl_mv_w, movementY: e.offsetY - ctrl_mv_h})
     });
-    control_move.addEventListener("pointermove", (e) => {
+    control_move.addEventListener("scroll", (e) => {
+      
       //console.debug(`${e.offsetX - ctrl_mv_w}, ${e.offsetY - ctrl_mv_h}`);
       e.stopPropagation();
-      physics_delegate.postMessage({type: 3, movementX: e.offsetX - ctrl_mv_w, movementY: e.offsetY - ctrl_mv_h})
+      physics_delegate.postMessage({
+        type: 3,
+        movementX: (ctrl_joy_centerX - e.target.scrollLeft)/ctrl_joy_maxX,
+        movementY: (e.target.scrollTop - ctrl_joy_centerY)/ctrl_joy_maxY
+      });
     });
-    control_move.addEventListener("pointerup", (e) => {
+    control_move.addEventListener("pointerleave", (e) => {
       e.stopPropagation();
-      physics_delegate.postMessage({type: 3, movementX: 0, movementY: 0})
+      physics_delegate.postMessage({type: 3, movementX: 0, movementY: 0});
+      joystick_center.scrollIntoView({block:"center", inline:"center"});
     });
 }
