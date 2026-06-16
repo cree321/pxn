@@ -74,6 +74,7 @@ doubleTapFocus;
   const aL_height_input_element = shadowDOM.querySelector(".texture-height");
   aL_width_input_element.onchange = (event) => aL_canvas_element.width = parseInt(aL_width_input_element.value);
   aL_height_input_element.onchange = (event) => aL_canvas_element.height = parseInt(aL_height_input_element.value);
+    this.onpointermove = (event) => { event.stopPropagation(); });
   }
 
   // aL_window_control.js
@@ -113,7 +114,6 @@ doubleTapFocus = function(event) {
 
 // aL_editor_control.js START
   function setupPaint() {
-    this.addEventListener("pointermove", (e) => { e.stopPropagation(); });
     //const shadowDOM = this.shadowRoot;
     const aL_canvas_element = shadowDOM.querySelector(".aL-canvas");
     
