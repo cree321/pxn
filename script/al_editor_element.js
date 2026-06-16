@@ -94,7 +94,6 @@ doubleTapFocus = function(event) {
   
 // CANVAS will NOT RESIZE width/height
   openEditorPaint(target_element) {
-    this.addEventListener("pointermove", (e) => { e.stopPropagation(); });
     this.style.display = "inline-block";
     const shadowDOM = this.shadowRoot;
     const aL_canvas_element = shadowDOM.querySelector(".aL-canvas");
@@ -114,6 +113,7 @@ doubleTapFocus = function(event) {
 
 // aL_editor_control.js START
   function setupPaint() {
+    this.addEventListener("pointermove", (e) => { e.stopPropagation(); });
     //const shadowDOM = this.shadowRoot;
     const aL_canvas_element = shadowDOM.querySelector(".aL-canvas");
     
