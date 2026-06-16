@@ -29,6 +29,7 @@ window.onload = (event) => {
     });
 
     //joystick move control reference points
+  
     const control_move = document.querySelector("#controlUI-move");
     const joystick_center = document.querySelector("#joy-center");
     joystick_center.scrollIntoView({block:"start", inline:"start"});
@@ -67,4 +68,21 @@ window.onload = (event) => {
       physics_delegate.postMessage({type: 3, movementX: 0, movementY: 0});
       joystick_center.scrollIntoView({block:"center", inline:"center"});
     });
+  const file_reader = new FileReader();
+  file_reader.onload = () => {
+    const new_div = document.createElement("div");
+    const image = new Image();
+    image.src = file_reader.result;
+    image.onload = () => {
+      new_div.style.width = image.width * 5;
+      new_div.style.height = image.height *5;
+      new_div.classList.add("geo");
+      new_div.style.background = `"url(${file_reader.result})"`
+      scene.appendChild(new_div);
+    };
+  };
+    joystick_center.addEventListener("input", (e) => {
+      file_reader.readAsDataURL(e.target.files[0]);
+    });
+  
 }
