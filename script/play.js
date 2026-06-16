@@ -76,8 +76,8 @@ window.onload = (event) => {
     image.onload = () => {
       new_div.style.width = image.width * 5;
       new_div.style.height = image.height *5;
-      new_div.classList.add("geo tempgrad");
-      new_div.style.background = `"url(${file_reader.result})"`;
+      new_div.classList.add("geo", "tempgrad");
+      new_div.style.background = `"url(${image.src})"`;
       scene.appendChild(new_div);
     };
   };
