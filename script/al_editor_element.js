@@ -1,3 +1,4 @@
+/*PXN al_editor_element.js, ©2026*/
 "use strict";
 
 var last_target = null;
@@ -93,6 +94,7 @@ doubleTapFocus = function(event) {
   
 // CANVAS will NOT RESIZE width/height
   openEditorPaint(target_element) {
+    this.addEventListener("pointermove", (e) => { e.stopPropagation(); });
     this.style.display = "inline-block";
     const shadowDOM = this.shadowRoot;
     const aL_canvas_element = shadowDOM.querySelector(".aL-canvas");
