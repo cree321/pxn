@@ -53,7 +53,7 @@ doubleTapFocus;
       <label class="aL">Import image:</label>
       <input class="aL file-import" type="file" accept="image/*,.json" />
       <a class="aL file-export" download>save</a>
-      <input class="aL stroke-color" type="color" value="#000000" />
+      <input class="aL stroke-color" type="color" value="#4444ff" />
       <label class="aL">Brush weight:</label>
       <input class="aL stroke-weight" type="number" value="1" min="0.1" max="10" step="0.1" /><br>
       <label class="aL">Width:</label>
@@ -79,14 +79,15 @@ doubleTapFocus;
 
   // aL_window_control.js
 doubleTapFocus = function(event) {
+  const target_element = event.composedPath()[0];
   const elapsed_deltaT = Date.now() - last_event_deltaT;
-  if((event.target == last_target) && (elapsed_deltaT < 500)) {
-    console.log(event.target);
+  if((target_element == last_target) && (elapsed_deltaT < 500)) {
+    console.log(target_element);
     const aL_editor_element = document.querySelector("al-editor");
-    aL_editor_element.openEditorPaint(event.target);
+    aL_editor_element.openEditorPaint(target_element);
   } else{
-    if (event.target.nodeName != "AL-EDITOR") {
-      last_target = event.target;
+    if (target_element.nodeName != "AL-EDITOR") {
+      last_target = target_element;
       last_event_deltaT = Date.now();
     }
   }
@@ -120,7 +121,7 @@ doubleTapFocus = function(event) {
     const aL_canvas_scale = parseFloat(aL_canvas_element.width) / parseFloat(aL_canvas_element.getBoundingClientRect().width);//aL_canvas_element.offsetWidth);
     const context = aL_canvas_element.getContext("2d");
     context.imageSmoothingEnabled = false;
-    context.strokeStyle = "black";
+    context.strokeStyle = "#4444ff";
     context.lineWidth = 2;
     
     function beginPainting(event) {
